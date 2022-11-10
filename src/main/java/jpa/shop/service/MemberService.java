@@ -1,5 +1,6 @@
 package jpa.shop.service;
 
+import com.sun.xml.bind.v2.TODO;
 import jpa.shop.domain.Member;
 import jpa.shop.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
+        // TODO 멀티 쓰레드 고려해서 DB에 name UNIQUE 제약 조건 걸기
         List<Member> findMember = memberRepository.findByName(member.getName());
 
         if(!findMember.isEmpty()) {
